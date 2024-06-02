@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import ListView, DetailView
 
 from blogs.models import BlogModel, BlogCategoryModel, BlogTagModel
 
@@ -7,6 +7,7 @@ class BlogsListViews(ListView):
     template_name = 'blog-list.html'
     context_object_name = 'blogs'
     model = BlogModel
+    paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
         blogs = BlogModel.objects.all().order_by('-created_at')
