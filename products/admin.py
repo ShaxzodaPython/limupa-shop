@@ -1,11 +1,13 @@
 from django.contrib import admin
 from products.models import *
 
+
 @admin.register(ProductManufactureModel)
 class ProductManufactureModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at',)
     search_fields = ('name',)
     list_filter = ('name', 'created_at',)
+
 
 @admin.register(ProductColorModel)
 class ProductColorModelAdmin(admin.ModelAdmin):
@@ -25,7 +27,7 @@ class ProductTagModelAdmin(admin.ModelAdmin):
 class ProductSizeModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at',)
     search_fields = ('name',)
-    list_filter = ('created_at',)
+    list_filter = ('name', 'created_at',)
 
 
 @admin.register(ProductCategoryModel)
